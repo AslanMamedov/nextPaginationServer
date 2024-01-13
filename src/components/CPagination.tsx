@@ -90,6 +90,10 @@ function CPagination({ pages = 100 }: CPaginationProps) {
 		[searchParams]
 	);
 
+	useEffect(() => {
+		setCurrentButton(pageNumber);
+	}, [pathname, pageNumber]);
+
 	return (
 		<div className="pagination-container">
 			<button
