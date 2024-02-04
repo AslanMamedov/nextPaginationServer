@@ -11,7 +11,8 @@ function CPagination({ pages = 100 }: CPaginationProps) {
 	const searchParams = useSearchParams()!;
 	const pageNumber = Number(searchParams.get('pageNumber'));
 	const numberOfPages: number[] = useMemo(() => new Array(pages).fill(0).map((_, index) => index + 1), [pages]);
-
+	// console.log(Object.entries(Object.fromEntries(searchParams.entries())));
+	// console.log('1', [...searchParams.entries()].map((item) => item.join('=')).join('&').length);
 	const [currentButton, setCurrentButton] = useState<any>(Number(searchParams.get('pageNumber')));
 	const [arrOfCurrButtons, setArrOfCurrButtons] = useState<number[]>([]);
 
@@ -41,7 +42,7 @@ function CPagination({ pages = 100 }: CPaginationProps) {
 
 	const navigateToPage = (pages: number, currentButton?: any) => {
 		if (pages >= 1 && pages <= pages && pages !== pageNumber) {
-			router.push(pathname + '?' + createQueryString('pageNumber', pages.toString()));
+			router.replace(pathname + '?' + createQueryString('pageNumber', pages.toString()));
 		}
 	};
 

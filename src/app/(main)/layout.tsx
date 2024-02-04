@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
-import Link from 'next/link';
+import '../globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,14 +13,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en">
 			<body cz-shortcut-listen="false" className={inter.className}>
-				<div>
-					<div>sidebar</div>
-					<div className="flex  flex-col gap-4">
-						<Link href={'/?pageNumber=1'}>Main</Link>
-						<Link href={'/user?pageNumber=1'}>User</Link>
-						<Link href={'/books?pageNumber=1'}>Book</Link>
-					</div>
-				</div>
 				{children}
 			</body>
 		</html>
